@@ -48,7 +48,7 @@ rails server or rails s
 - POST /movies/add_to_favorites: Add a movie to the favorite list.
 - GET /favorite_movies: View the list of favorite movies.
 - DELETE /favorite_movies/:id: Remove a movie from the favorite list.
- ```
+
 
  
 

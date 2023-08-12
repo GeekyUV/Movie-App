@@ -1,0 +1,33 @@
+<div class="content-container">
+  <div class="favorite-movies-link">
+    <%= link_to 'Favorite Movies', favorite_movies_path %>
+  </div>
+  <h1 class="text-center">Latest Movies</h1>
+
+  <%= form_tag search_movies_path, method: :get, class: "search-form" do %>
+    <%= text_field_tag :query, params[:query], placeholder: "Search for a movie" %>
+    <%= submit_tag "Search" %>
+  <% end %>
+
+  <div class="movie-container">
+    <% if @popular_movies.any? %>
+      <% @popular_movies.each do |movie| %>
+        <div class="movie">
+          <% if movie['poster_path'].present? %>
+            <%= link_to movie_path(movie['id']) do %>
+              <%= image_tag "https://image.tmdb.org/t/p/w500#{movie['poster_path']}", alt: movie['title'] %>
+            <% end %>
+          <% else %>
+            <%= image_tag 'default_poster.jpg', alt: 'No Poster Available' %>
+          <% end %>
+          <h3 class="movie-title">
+            <%= link_to movie['title'], movie_path(movie['id']) %>
+          </h3>
+          <%= button_to added_to_favorites?(movie['id']) ? 'Added to Favorites' : 'Add to Favorites', add_to_favorites_movies_path(movie_id: movie['id']), remote: true, class: 'add-to-favorites-button', data: { movie_id: movie['id'] } %>
+        </div>
+      <% end %>
+    <% else %>
+      <p>No popular movies data available.</p>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="content-container">
+  <h1 class="text-center">Favorite Movies</h1>
+  <div class="movie-container">
+    <% if @favorite_movies.any? %>
+      <% @favorite_movies.each do |movie| %>
+        <div class="movie">
+          <% if movie['poster_path'].present? %>
+            <%= link_to movie_path(movie['id']) do %>
+              <%= image_tag "https://image.tmdb.org/t/p/w500#{movie['poster_path']}", alt: movie['title'] %>
+            <% end %>
+          <% else %>
+            <%= image_tag 'default_poster.jpg', alt: 'No Poster Available' %>
+          <% end %>
+          <h3 class="movie-title">
+            <%= link_to movie['title'], movie_path(movie['id']) %>
+          </h3>
+          <%= button_to 'Remove from Favorites', favorite_movie_path(id: movie['id']), method: :delete, data: { confirm: 'Are you sure you want to remove this movie from your favorites?' }, class: 'remove-from-favorites-button' %>
+        </div>
+      <% end %>
+    <% else %>
+      <p class="text-center no-movies-message">No favorite movies added yet.</p>
+    <% end %>
+  </div>
+</div>

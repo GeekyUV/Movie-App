@@ -1,0 +1,24 @@
+<div class="content-container">
+  <h1 class="text-center">Search Results</h1>
+  <div class="movie-container">
+    <% if @search_results.present? %>
+      <% @search_results.each do |movie| %>
+        <div class="movie">
+          <% if movie['poster_path'].present? %>
+            <%= link_to movie_path(movie['id']) do %>
+              <%= image_tag "https://image.tmdb.org/t/p/w500#{movie['poster_path']}", alt: movie['title'] %>
+            <% end %>
+          <% else %>
+            <%= image_tag 'default_poster.jpg', alt: 'No Poster Available' %>
+          <% end %>
+          <h3 class="movie-title">
+            <%= link_to movie['title'], movie_path(movie['id']) %>
+          </h3>
+          <%= button_to added_to_favorites?(movie['id']) ? 'Added to Favorites' : 'Add to Favorites', add_to_favorites_movies_path(movie_id: movie['id']), remote: true, class: 'add-to-favorites-button', data: { movie_id: movie['id'] } %>
+        </div>
+      <% end %>
+    <% else %>
+      <p>No search results found.</p>
+    <% end %>
+  </div>
+</div>

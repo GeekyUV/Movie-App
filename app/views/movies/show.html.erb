@@ -1,0 +1,12 @@
+<div class="content-container">
+  <div class="movie-details">
+    <h1 class="text-center"><%= @movie['title'] %></h1>
+    <% if @movie['poster_path'].present? %>
+      <%= image_tag "https://image.tmdb.org/t/p/w500#{@movie['poster_path']}", alt: @movie['title'] %>
+    <% else %>
+      <%= image_tag 'default_poster.jpg', alt: 'No Poster Available' %>
+    <% end %>
+    <p class="movie-overview"><%= @movie['overview'] %></p>
+    <p class="release-date">Release Date: <%= @movie['release_date'] %></p>
+  </div>
+</div>

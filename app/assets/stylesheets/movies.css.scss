@@ -1,0 +1,105 @@
+body {
+  background: url('https://img.freepik.com/free-photo/assortment-cinema-elements-red-background-with-copy-space_23-2148457848.jpg?w=1800&t=st=1691746771~exp=1691747371~hmac=cf11dac896e9f5ee551e294d3b910009fed672f4d61b6c5ecc7e07ca2005aa44') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+}
+
+.movie-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1200px;
+}
+
+.movie {
+  flex-basis: calc(25% - 20px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.movie img {
+  max-height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+.movie-details {
+  color: white;
+  text-align: center;
+}
+
+.movie-details h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.movie-details p {
+  margin-bottom: 8px;
+}
+
+h1.text-center {
+  color: white;
+  font-weight: bold;
+  font-size: 32px;
+  margin-top: 0;
+}
+
+.search-form {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.search-form input[type="text"] {
+  padding: 8px;
+  width: 300px;
+  border: 1px solid #ccc;
+}
+
+
+.search-results h2 {
+  margin-top: 20px;
+  font-size: 24px;
+}
+
+.favorite-movies-link {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+  z-index: 1000;
+}
+
+.favorite-movies-link a {
+  color: white;
+}
+
+.added-to-favorites {
+  background-color: green;
+  color: white;
+}
+
+.no-movies-message {
+  color: white;
+}
+
+
